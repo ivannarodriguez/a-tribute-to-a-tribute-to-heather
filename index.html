@@ -23,14 +23,15 @@
            'overflow': 'hidden'} ) // hide scrollbar
     
     const sz = 140 // controls size of gif on screen
+    const gif_spacing = sz / 3
     const numColumns = nn.width / (sz / 4) // fill width 
     const numRows = nn.height
     
     for (let r = 0; r < numColumns / 4; r++) {
       for (let c = 0; c < numRows; c++) {
         // update based on browser window size
-        const x = c * (sz / 3) - (sz / 2)
-        const y = r * (sz / 3) - (sz / 2)
+        const x = c * (gif_spacing) - (sz / 2)
+        const y = r * (gif_spacing) - (sz / 2)
 
         createGif(x, y, sz, sz, gifURL) // args in order
       }
