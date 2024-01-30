@@ -13,7 +13,6 @@
         'top' : `${y}px`, // how to pass var into string
         'width': `${w}px`,
         'height': `${h}px`,
-        'border': '1px solid black'
       })
       .addTo('body')
   }
@@ -26,11 +25,9 @@
     // position multiple gifs for grid air balloon effect
     for (let i = 0; i < 100; i++) {
       // update based on browser window size
-      const sz = 140
-      // const x = (nn.width / 2) - (sz / 2)
-      // const y = (nn.height / 2) - (sz / 2)
-      const x = nn.random(0, nn.width)
-      const y = nn.random(0, nn.height)
+      const sz = 140 // controls size of gif on screen
+      const x = i * (sz / 2)
+      const y = (nn.height / 2) - (sz / 2)
       
       createGif(x, y, sz, sz, gifURL) // args in order
     }
