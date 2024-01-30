@@ -2,7 +2,7 @@
 
 <script>
   const gifURL = 'butterfly.gif'
-  const bgColor = '#D6E7EE'
+  const bgColor = '#AED3DE'
   
   function createGif(x, y, w, h, url) {
     nn.create('img') // want to create an img elmnt 4 gif
@@ -10,9 +10,12 @@
       .css({ 
         'position': 'absolute',
         'left': `${x}px`,
-        'top' : `${y}px` // how to pass var into string
-        
+        'top' : `${y}px`, // how to pass var into string
+        'width': `${w}px`,
+        'height': `${h}px`,
+        'border': '1px solid black'
       })
+      .addTo('body')
   }
   
   function setup() {
@@ -20,8 +23,13 @@
     nn.get('body')
       .css({ 'background-color': bgColor })
     
+    // update based on browser window size
+    const sz = 140
+    const x = (nn.width / 2) - (sz / 2)
+    const y = (nn.height / 2) - (sz / 2)
+    
     // call funcs w args in order of func above
-    createGif(100, 300, 140, 140, gifURL)
+    createGif(x, y, sz, sz, gifURL)
     
     // or we could also do:
     // const b = nn.get('body')
