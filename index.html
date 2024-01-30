@@ -6,7 +6,8 @@
   
   function createGif(x, y, w, h, url) {
     nn.create('img') // want to create an img elmnt 4 gif
-      .set({ src: url })
+      // hack for runtime trick: make browser inefficient
+      .set({ src: `${url}#${nn.random()}` })
       .css({ 
         'position': 'absolute',
         'left': `${x}px`,
