@@ -2,16 +2,34 @@
 
 <script>
   const gifURL = 'butterfly.gif'
-  const bgColor = '#e585ca'
+  const bgColor = '#D6E7EE'
+  
+  function createGif(x, y, w, h, url) {
+    nn.create('img') // want to create an img elmnt 4 gif
+      .set({ src: url })
+      .css({ 
+        'position': 'absolute',
+        'left': `${x}px`,
+        'top' : `${y}px` // how to pass var into string
+        
+      })
+  }
   
   function setup() {
     // called the main function
-    const b = nn.get('body')
-    const style = ''
-    b.css()
+    nn.get('body')
+      .css({ 'background-color': bgColor })
+    
+    // call funcs w args in order of func above
+    createGif(100, 300, 140, 140, gifURL)
+    
+    // or we could also do:
+    // const b = nn.get('body')
+    // const style = { 'background-color': bgColor }
+    // b.css(style)   
   }
   
   // to listen for events
-  nn.on()
+  nn.on('load', setup)
   
 </script>
